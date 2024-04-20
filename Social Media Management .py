@@ -131,7 +131,7 @@ class MaxHeap:
         # Method to get the most viewed post from the max heap
         return heapq.heappop(self.heap)[1] if self.heap else None  # Pop and return the top post if heap is not empty
 
-# Example usage
+
 if __name__ == "__main__":
     social_media_manager = SocialMediaManager()
 
@@ -184,3 +184,17 @@ if __name__ == "__main__":
     print(f"Views: {most_liked_post.views}")
     print(f"Likes: {most_liked_post.likes}")
     print(f"Comments: {most_liked_post.comments}" if most_liked_post else "None")
+
+    # Adding a post with the highest views and getting the most viewed post again
+    post6 = Post(datetime="2024-04-25 14:00:00", post="New post with highest views!", person="Eve", views=350, likes=30, comments=["Amazing content!", "Wow!"])
+    social_media_manager.add_post(post6)
+
+    # Get most viewed post again
+    most_viewed_post_again = social_media_manager.get_most_viewed_post()
+    print("\nMost viewed post after adding new post with highest views:")
+    print(f"\nDateTime: {most_viewed_post_again.datetime}")
+    print(f"Post: {most_viewed_post_again.post}")
+    print(f"Person: {most_viewed_post_again.person}")
+    print(f"Views: {most_viewed_post_again.views}")
+    print(f"Likes: {most_viewed_post_again.likes}")
+    print(f"Comments: {most_viewed_post_again.comments}")
